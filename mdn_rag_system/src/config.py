@@ -6,7 +6,7 @@ load_dotenv()
 
 DATASET_PATH = os.getenv(
     "DATASET_PATH",
-    "/home/dino/praksa/mdnscraper/output/mdn_dataset_20260416_192710.jsonl"
+    "/home/dino/Desktop/mdn-rag/output/mdn_dataset_20260416_204418.jsonl"
 )
 
 QA_PAIRS_PATH = os.getenv(

@@ -1,5 +1,6 @@
-.venv/
-__pycache__/
-.scrapy/
+venv/
 .env
+__pycache__/
 *.pyc
+.scrapy/
+.ipynb_checkpoints/

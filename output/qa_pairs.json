@@ -1,0 +1,177 @@
+[
+  {
+    "question": "What is the purpose of the DOCTYPE declaration in HTML?",
+    "answer": "The DOCTYPE declaration tells the browser which version of HTML the document uses. The modern declaration is <!DOCTYPE html>, which instructs the browser to use HTML5 standard mode and avoid 'quirks mode' rendering.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode"
+  },
+  {
+    "question": "What is the difference between block-level and inline HTML elements?",
+    "answer": "Block-level elements (e.g. <div>, <p>, <h1>) always start on a new line and take up the full width of their parent. Inline elements (e.g. <span>, <a>, <strong>) do not start on a new line and only take up as much space as needed.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements"
+  },
+  {
+    "question": "What is semantic HTML and why is it important?",
+    "answer": "Semantic HTML uses elements according to their meaning rather than just visual appearance. For example, <nav> for navigation, <article> for standalone content, <header> for page headers. Benefits include better accessibility, improved SEO, and more readable code.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Semantics"
+  },
+  {
+    "question": "What is the difference between the <head> and <body> elements in HTML?",
+    "answer": "The <head> element contains metadata about the document (title, links to stylesheets, scripts, meta tags) that is not displayed directly on the page. The <body> element contains all the visible content of the page that is rendered in the browser.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head"
+  },
+  {
+    "question": "What is the purpose of the 'alt' attribute on an <img> element?",
+    "answer": "The 'alt' attribute provides alternative text for an image if it cannot be displayed. It is important for accessibility (screen readers read it aloud), SEO, and is shown when the image fails to load. For decorative images, alt should be an empty string (alt='') but never omitted.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"
+  },
+  {
+    "question": "What is the difference between the 'id' and 'class' attributes in HTML?",
+    "answer": "The 'id' attribute must be unique within the entire document — each id can only be used once. The 'class' attribute can be used on multiple elements, and one element can have multiple classes separated by spaces. Ids are used for unique elements and anchor links (#id), while classes are used for styling groups of elements.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes"
+  },
+  {
+    "question": "What does the 'data-*' attribute do in HTML?",
+    "answer": "Data-* attributes allow you to store custom private data directly on HTML elements. The syntax is data-attribute-name='value'. They are accessible via JavaScript through the dataset property: element.dataset.attributeName. They are useful for storing configuration, IDs, and state without using hidden inputs.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes"
+  },
+  {
+    "question": "What is the 'contenteditable' attribute in HTML?",
+    "answer": "The contenteditable='true' attribute makes any HTML element directly editable in the browser — the user can click and type text as in a text editor. The value false explicitly disables editing. It is used for rich text editors and inline content editing.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable"
+  },
+  {
+    "question": "What are the main types of input elements in HTML forms?",
+    "answer": "HTML supports many input types via the type attribute: text (single-line text), password (hidden text), email (email validation), number (numeric input), checkbox (multiple selection), radio (single selection), file (file upload), date (date picker), range (slider), and submit (form submission).",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
+  },
+  {
+    "question": "What is the difference between GET and POST methods in HTML forms?",
+    "answer": "GET sends form data as part of the URL (query string) — it is visible in the address bar, limited in length, and not suitable for sensitive data. POST sends data in the HTTP request body — it is not visible in the URL, has no length restriction, and is appropriate for sensitive or large data.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+  },
+  {
+    "question": "How should the <label> element be correctly used with form inputs?",
+    "answer": "The <label> element associates a text description with a form element, improving accessibility. The correct usage is via the 'for' attribute matching the input's 'id': <label for='name'>Name:</label><input id='name' type='text'>. Alternatively, the input can be nested inside the label element.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"
+  },
+  {
+    "question": "What is the purpose of the <fieldset> and <legend> elements in HTML forms?",
+    "answer": "The <fieldset> element groups related form controls together, and the <legend> element provides a caption for that group. This improves accessibility by giving screen readers context about the grouped inputs, and visually draws a border around the group by default.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset"
+  },
+  {
+    "question": "How do you open a link in a new tab and what are the security risks?",
+    "answer": "A link opens in a new tab using target='_blank'. However, this introduces a security risk because the new page can access the parent via window.opener. The safe solution is to always add rel='noopener noreferrer' alongside target='_blank'.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
+  },
+  {
+    "question": "What is the difference between absolute and relative URLs in HTML?",
+    "answer": "An absolute URL contains the full address including protocol and domain (https://example.com/page). A relative URL is relative to the current page — it can be relative to the root (/page), the directory (../page), or the current location (page.html). Relative URLs are more practical for internal links as they do not depend on the domain.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL"
+  },
+  {
+    "question": "What is the <picture> element and what is it used for?",
+    "answer": "The <picture> element allows you to define multiple image sources so the browser can choose the most optimal one based on conditions like screen size or format support. Inside it, <source> elements with media and srcset attributes are used, and the final <img> element serves as a fallback for browsers without support.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture"
+  },
+  {
+    "question": "What attributes are recommended for the <video> element in HTML5?",
+    "answer": "The only required part is a src attribute or nested <source> elements. Recommended attributes include controls (shows playback controls), width and height (dimensions), poster (placeholder image), preload (loading strategy), and muted (required for autoplay without sound).",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"
+  },
+  {
+    "question": "How does the loading='lazy' attribute improve page performance?",
+    "answer": "The loading='lazy' attribute on <img> and <iframe> elements defers loading of resources until they are near the user's viewport. This reduces initial page load time because images the user may never see are not downloaded upfront. The alternative is loading='eager' (default) which loads immediately.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading"
+  },
+  {
+    "question": "What is the correct structure of an HTML table?",
+    "answer": "The basic structure is: <table> as the wrapper, <tr> for rows, <th> for header cells, and <td> for data cells. Recommended elements include <thead>, <tbody>, and <tfoot> for semantic grouping, <caption> for a table description, and the scope attribute on <th> for accessibility.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+  },
+  {
+    "question": "How do you merge table cells horizontally and vertically in HTML?",
+    "answer": "Horizontal merging uses the colspan='N' attribute on <td> or <th>, where N is the number of columns the cell spans. Vertical merging uses the rowspan='N' attribute indicating the number of rows spanned. The browser automatically adjusts the layout.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td"
+  },
+  {
+    "question": "What are the most important <meta> tags to include in every HTML document?",
+    "answer": "The most important meta tags are: charset (meta charset='UTF-8') for character encoding, viewport (meta name='viewport' content='width=device-width, initial-scale=1') for responsive design, description for SEO, and og:title/og:description/og:image for Open Graph (social media sharing).",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"
+  },
+  {
+    "question": "What is the difference between async and defer attributes on a <script> tag?",
+    "answer": "Without attributes: HTML parsing stops while the script is downloaded and executed. With async: the script downloads in parallel but executes as soon as it is ready, potentially interrupting parsing. With defer: the script downloads in parallel and executes only after HTML is fully parsed, in document order. Defer is recommended for scripts that depend on the DOM.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
+  },
+  {
+    "question": "What is the purpose of the <base> element in HTML?",
+    "answer": "The <base> element specifies the base URL for all relative URLs in the document. It must be placed in the <head> section. For example, <base href='https://example.com/'> means all relative links will be resolved against that URL. There can only be one <base> element per document.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base"
+  },
+  {
+    "question": "What is ARIA and when should it be used in HTML?",
+    "answer": "ARIA (Accessible Rich Internet Applications) is a set of attributes that improve accessibility of dynamic content for screen reader users. It is used when native HTML elements are insufficient — for example, aria-label to add a description, aria-expanded for dropdown state, role to define element purpose. The golden rule: always prefer native semantic HTML over ARIA.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+  },
+  {
+    "question": "Why is the correct heading order (h1-h6) important for accessibility?",
+    "answer": "Screen readers and assistive technologies use headings as a navigation structure for the document. Users can jump between headings without reading everything. A correct hierarchy (one h1, then h2, h3...) ensures a logical structure. Skipping levels (e.g. h1 directly to h3) confuses users and accessibility tools.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
+  },
+  {
+    "question": "What attributes are required for the <img> element according to HTML standards?",
+    "answer": "The src attribute is required and defines the image URL. The alt attribute is technically optional but required by WCAG accessibility guidelines — every image must have an alt attribute (can be empty string for decorative images). Width and height are recommended because they allow browsers to reserve space and prevent layout shift.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"
+  },
+  {
+    "question": "What is the difference between the <article> and <section> elements?",
+    "answer": "<article> represents standalone, self-contained content that makes sense on its own outside the page context — e.g. a blog post, forum reply, or news article. <section> is a thematic grouping of content within a document that does not necessarily make sense on its own. An article can have multiple sections, and a section can have multiple articles.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"
+  },
+  {
+    "question": "What are the <details> and <summary> elements used for?",
+    "answer": "The <details> and <summary> combination creates a native HTML expand/collapse widget (accordion) without JavaScript. The <summary> element is the visible heading the user clicks, and the content inside <details> (outside summary) is hidden until clicked. The open attribute on the details element makes it open by default.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
+  },
+  {
+    "question": "What is the difference between <strong> and <b>, and between <em> and <i>?",
+    "answer": "<strong> indicates semantic importance (screen readers emphasize it), while <b> only visually bolds text without semantic meaning. Similarly, <em> indicates emphasis that changes the meaning of the sentence (screen readers change tone), while <i> only visually italicizes without semantics. <strong> and <em> are preferred for meaningful emphasis.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong"
+  },
+  {
+    "question": "What is the <template> element in HTML?",
+    "answer": "The <template> element holds HTML content that is not rendered when the page loads but can be instantiated later via JavaScript. Its content is parsed but not displayed — it is inert until cloned into the document. It is commonly used with Web Components to define reusable markup.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template"
+  },
+  {
+    "question": "What is the Shadow DOM and what is it used for?",
+    "answer": "Shadow DOM is a Web API that allows encapsulation of a DOM subtree and CSS styles within an element, isolated from the rest of the document. It is used to create web components with their own styles and structure that cannot be accidentally affected by external CSS. Examples: <video> controls and <input type='date'> are implemented using Shadow DOM.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM"
+  },
+  {
+    "question": "What is the difference between <iframe> and <embed> elements?",
+    "answer": "<iframe> embeds a complete HTML document with its own browsing context — it has src, width, height, and the sandbox security attribute for isolation. <embed> is intended for embedding external content requiring a plugin (Flash, PDF) and has a type attribute for MIME type. For modern use cases, <iframe> is the standard choice for embedding pages and videos.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"
+  },
+  {
+    "question": "How do you correctly declare the document language in HTML?",
+    "answer": "The language is declared with the lang attribute on the <html> element: <html lang='en'> for English, <html lang='hr'> for Croatian. This is important for screen readers that adjust pronunciation, for translators, and for SEO. Language can also be changed at the level of individual elements: <p lang='hr'>Hrvatski tekst</p>.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang"
+  },
+  {
+    "question": "What is an HTML entity and what are some examples?",
+    "answer": "An HTML entity is a special code for displaying reserved characters or characters that are difficult to type. The format is &name; or &#number;. Examples: &lt; (<), &gt; (>), &amp; (&), &quot; (\"), &copy; (©), &nbsp; (non-breaking space), &euro; (€). The < and > characters are especially important as the browser interprets them as HTML tags.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Entity"
+  },
+  {
+    "question": "What causes 'invalid nesting' errors in HTML?",
+    "answer": "Invalid nesting occurs when elements are placed inside elements that are not allowed to contain them. Common examples: <p> inside <p> (paragraphs cannot be nested), <div> inside <p> (block inside inline context), <a> inside <a> (link inside a link), <li> directly inside <div> instead of <ul> or <ol>.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories"
+  },
+  {
+    "question": "What is the <canvas> element and how does it differ from <svg>?",
+    "answer": "<canvas> provides a bitmap drawing surface controlled entirely via JavaScript — it is resolution-dependent and does not retain a DOM structure of drawn objects. <svg> is a vector format where each shape is a DOM element that can be styled with CSS and manipulated with JavaScript. Canvas is better for complex animations and games; SVG is better for scalable graphics and icons.",
+    "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"
+  }
+]

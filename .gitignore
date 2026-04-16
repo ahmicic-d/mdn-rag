@@ -1,0 +1,12 @@
+# Scrapy cache
+.scrapy/
+
+# Output dataset (veliki fajlovi)
+output/*.jsonl
+output/*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env

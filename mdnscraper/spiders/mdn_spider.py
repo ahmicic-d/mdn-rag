@@ -7,15 +7,27 @@ class MdnSpider(scrapy.Spider):
     
     name = "mdn_html"
     
-    start_url = "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    start_urls = [
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        "https://developer.mozilla.org/en-US/docs/Web/CSS",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers",
+    ]
     
     allowed_domains = ["developer.mozilla.org"]
     
     custom_settings = {
-        "CLOSESPIDER_PAGECOUNT": 120
+        "CLOSESPIDER_PAGECOUNT": 600,
+        "DEPTH_LIMIT": 5,             
+        "DEPTH_PRIORITY": 1,         
+        "SCHEDULER_DISK_QUEUE": "scrapy.squeues.PickleFifoDiskQueue",
+        "SCHEDULER_MEMORY_QUEUE": "scrapy.squeues.FifoMemoryQueue",
     }
 
-    #Definiramo URL-ove koje ne želimo obuhvatiti
     SKIP_URL_PATTERNS = [
         "/en-US/docs/MDN/",
         "/en-US/docs/Glossary/",
@@ -23,14 +35,22 @@ class MdnSpider(scrapy.Spider):
         "/en-US/curriculum/",
         "/en-US/observatory/",
         "/en-US/plus/",
+        "/en-US/docs/Web/API",
+        "/de/docs/", "/es/docs/", "/fr/docs/",
+        "/ja/docs/", "/ko/docs/", "/pt-BR/docs/",
+        "/ru/docs/", "/zh-CN/docs/", "/zh-TW/docs/",
         "?q=",
         "#",
+        "contributors.txt",
+        ".txt",
     ]
 
     ALLOWED_URL_PATTERNS = [
         "/en-US/docs/Web/HTML",
         "/en-US/docs/Web/CSS",
         "/en-US/docs/Web/JavaScript",
+        "/en-US/docs/Web/Accessibility",
+        "/en-US/docs/Web/HTTP",
     ]
 
     def parse(self, response):
@@ -47,25 +67,26 @@ class MdnSpider(scrapy.Spider):
             yield item
 
         #Dohvaćamo sve href atribute kao listu stringova, pretvaramo sve u apsolutne URL-ove (urljoin())
-        for href in response.css("a::attr(href)").get_all():
+        for href in response.css("a::attr(href)").getall():
             full_url = response.urljoin(href)
             #Ako je link valjan, follow kreira novi zahtjev - automatski se vodi evidencija već posjećenih linkova 
-            if self._is_allowed_link(full_url):
+            if self._is_valid_link(full_url):
                 yield response.follow(full_url, callback = self.parse)
         
     
     #Provjera da li je url neki od prethodno definiranih patterna koje treba preskočiti
-    def should_skip(self, url:str) -> bool:
-        for pattern in self.SKIP_URL_PATTERNS:
-            if pattern in url:
-                return True
-            else:
-                return False
+    def _should_skip(self, url:str) -> bool:
+        return any(pattern in url for pattern in self.SKIP_URL_PATTERNS)
+    
+    def _is_valid_link(self, url:str) -> bool:
+        if "developer.mozilla.org" not in url:
+            return False
+        return any(pattern in url for pattern in self.ALLOWED_URL_PATTERNS)
     
 
     def _extract_content(self, response) -> MdnPageItem | None:
         
-        soup = BeautifulSoup(response.text, "lxlm")
+        soup = BeautifulSoup(response.text, "lxml")
 
         #Dijelove koje izbacujem, radi zbunjivanja RAG-a
         NOISE_SELECTORS = [
@@ -119,7 +140,7 @@ class MdnSpider(scrapy.Spider):
             main_content = soup.select_one("body")
 
         #"Čistimo tekst" -> mičemo Whitespace, prazne linije - Ako content ima manje od 100 charactera ignoriramo ju zbog irelevancije
-        clean_text = soup._to_clean_text(main_content)
+        clean_text = self._to_clean_text(main_content)
         if len(clean_text) < 100:
             self.logger.info(f"Too little content for: {response.url}")
             return None
@@ -167,7 +188,7 @@ class MdnSpider(scrapy.Spider):
             tag.insert_before("\n")
 
         
-        for code_block in element.fin_all(["pre", "code"]):
+        for code_block in element.find_all(["pre", "code"]):
             code_block.decompose()
 
         #Dohvaćanje teksta
@@ -197,7 +218,7 @@ class MdnSpider(scrapy.Spider):
     
 
     #Metoda koja vraća kategoriju u koju neki sadržaj može spadati
-    def _detect_selection(self, url: str) -> str:
+    def _detect_section(self, url: str) -> str:
         if "/Web/HTML" in url:
             return "HTML"
         elif "/Web/CSS" in url:
@@ -206,4 +227,8 @@ class MdnSpider(scrapy.Spider):
             return "JavaScript"
         elif "/Web/API" in url:
             return "Web API"
+        elif "/Web/Accessibility" in url:
+            return "Accessibility"
+        elif "/Web/HTTP" in url:
+            return "HTTP"
         return "Other"

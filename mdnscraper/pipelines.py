@@ -24,7 +24,7 @@ class TextCleaningPipeline:
         "Cookie Policy"
     ]
 
-    def process_item(self, item, spider):
+    def process_item(self, item):
         adapter = ItemAdapter(item)
         content = adapter.get("content", "")
         lines = content.split("\n")
@@ -38,21 +38,21 @@ class TextCleaningPipeline:
         return item
 
 class JsonlOutputPipeline:
-    def open_spider(self, spider):
+    def open_spider(self):
 
         os.makedirs("output", exist_ok=True)    #Direktorij unutar kojeg će se spremati scrape-ani podaci
         timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S") #Timestamp scrape-anja pojedinog dokumenta
-        filepath = f"output/mdn_dataset_{timestamp}.json1"  #Izrada dokumenta pomoću timestampa (izbjegavanje overwrite-a)
+        filepath = f"output/mdn_dataset_{timestamp}.jsonl"  #Izrada dokumenta pomoću timestampa (izbjegavanje overwrite-a)
         self.file = open(filepath, "w", encoding="utf-8")   #Otvaranje dokumenta za upisivanje scrape-anih podataka, self.file ostaje dostupan drugim metodama
 
-    def close_spider(self, spider):
+    def close_spider(self):
         self.file.close()
 
 
     #Metoda prima jedan item (npr. url, title, section, content sa pripadnim tekstovima), adapter "wrappa" item - omogućava rad nad itemom bez obzira na strukturu
     #dict(spider) pretvara adapter u rječnik (key-value par), json.dumps() pretvara taj rječnik u json string
     #Zapisujemo taj json string u datoteku
-    def process_item(self, item, spider):
+    def process_item(self, item):
         adapter = ItemAdapter(item)
         line = json.dumps(dict(adapter), ensure_ascii=False)
         self.file.write(line + "\n")

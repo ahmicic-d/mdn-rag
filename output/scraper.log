@@ -1,0 +1,127 @@
+2026-04-16 21:27:10 [scrapy.utils.log] INFO: Scrapy 2.14.2 started (bot: mdn_rag_scraper)
+2026-04-16 21:27:10 [scrapy.utils.log] INFO: Versions:
+{'lxml': '6.0.2',
+ 'libxml2': '2.14.6',
+ 'cssselect': '1.4.0',
+ 'parsel': '1.11.0',
+ 'w3lib': '2.4.1',
+ 'Twisted': '25.5.0',
+ 'Python': '3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]',
+ 'pyOpenSSL': '26.0.0 (OpenSSL 3.5.5 27 Jan 2026)',
+ 'cryptography': '46.0.6',
+ 'Platform': 'Linux-6.17.0-20-generic-x86_64-with-glibc2.39'}
+2026-04-16 21:27:10 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-04-16 21:27:10 [scrapy.extensions.telnet] INFO: Telnet Password: e2849cb73f2c67a7
+2026-04-16 21:27:10 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logcount.LogCount',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.closespider.CloseSpider',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2026-04-16 21:27:10 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
+ 'BOT_NAME': 'mdn_rag_scraper',
+ 'CLOSESPIDER_PAGECOUNT': 600,
+ 'CONCURRENT_REQUESTS': 4,
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 1,
+ 'DEPTH_LIMIT': 5,
+ 'DEPTH_PRIORITY': 1,
+ 'DOWNLOAD_DELAY': 1.5,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'HTTPCACHE_ENABLED': True,
+ 'HTTPCACHE_EXPIRATION_SECS': 86400,
+ 'LOG_FILE': 'output/scraper.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'mdnscraper.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SCHEDULER_DISK_QUEUE': 'scrapy.squeues.PickleFifoDiskQueue',
+ 'SCHEDULER_MEMORY_QUEUE': 'scrapy.squeues.FifoMemoryQueue',
+ 'SPIDER_MODULES': ['mdnscraper.spiders'],
+ 'USER_AGENT': 'mdn-rag-research-bot/1.0 '
+               '(+https://github.com/ahmicic-d/mdn-rag)'}
+2026-04-16 21:27:10 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats',
+ 'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware']
+2026-04-16 21:27:10 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2026-04-16 21:27:10 [scrapy.middleware] INFO: Enabled item pipelines:
+['mdnscraper.pipelines.TextCleaningPipeline',
+ 'mdnscraper.pipelines.JsonlOutputPipeline']
+2026-04-16 21:27:10 [scrapy.core.engine] INFO: Spider opened
+2026-04-16 21:27:10 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-04-16 21:27:10 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-04-16 21:28:10 [scrapy.extensions.logstats] INFO: Crawled 38 pages (at 38 pages/min), scraped 37 items (at 37 items/min)
+2026-04-16 21:29:10 [scrapy.extensions.logstats] INFO: Crawled 72 pages (at 34 pages/min), scraped 71 items (at 34 items/min)
+2026-04-16 21:30:10 [scrapy.extensions.logstats] INFO: Crawled 105 pages (at 33 pages/min), scraped 104 items (at 33 items/min)
+2026-04-16 21:31:10 [scrapy.extensions.logstats] INFO: Crawled 138 pages (at 33 pages/min), scraped 137 items (at 33 items/min)
+2026-04-16 21:32:10 [scrapy.extensions.logstats] INFO: Crawled 170 pages (at 32 pages/min), scraped 169 items (at 32 items/min)
+2026-04-16 21:33:10 [scrapy.extensions.logstats] INFO: Crawled 203 pages (at 33 pages/min), scraped 201 items (at 32 items/min)
+2026-04-16 21:34:10 [scrapy.extensions.logstats] INFO: Crawled 236 pages (at 33 pages/min), scraped 234 items (at 33 items/min)
+2026-04-16 21:35:10 [scrapy.extensions.logstats] INFO: Crawled 269 pages (at 33 pages/min), scraped 267 items (at 33 items/min)
+2026-04-16 21:36:10 [scrapy.extensions.logstats] INFO: Crawled 303 pages (at 34 pages/min), scraped 301 items (at 34 items/min)
+2026-04-16 21:37:10 [scrapy.extensions.logstats] INFO: Crawled 336 pages (at 33 pages/min), scraped 331 items (at 30 items/min)
+2026-04-16 21:38:10 [scrapy.extensions.logstats] INFO: Crawled 369 pages (at 33 pages/min), scraped 363 items (at 32 items/min)
+2026-04-16 21:39:10 [scrapy.extensions.logstats] INFO: Crawled 403 pages (at 34 pages/min), scraped 397 items (at 34 items/min)
+2026-04-16 21:40:10 [scrapy.extensions.logstats] INFO: Crawled 434 pages (at 31 pages/min), scraped 428 items (at 31 items/min)
+2026-04-16 21:41:10 [scrapy.extensions.logstats] INFO: Crawled 467 pages (at 33 pages/min), scraped 461 items (at 33 items/min)
+2026-04-16 21:42:10 [scrapy.extensions.logstats] INFO: Crawled 501 pages (at 34 pages/min), scraped 495 items (at 34 items/min)
+2026-04-16 21:43:10 [scrapy.extensions.logstats] INFO: Crawled 532 pages (at 31 pages/min), scraped 526 items (at 31 items/min)
+2026-04-16 21:44:10 [scrapy.extensions.logstats] INFO: Crawled 564 pages (at 32 pages/min), scraped 558 items (at 32 items/min)
+2026-04-16 21:45:10 [scrapy.extensions.logstats] INFO: Crawled 597 pages (at 33 pages/min), scraped 591 items (at 33 items/min)
+2026-04-16 21:45:15 [scrapy.core.engine] INFO: Closing spider (closespider_pagecount)
+2026-04-16 21:45:20 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 226009,
+ 'downloader/request_count': 603,
+ 'downloader/request_method_count/GET': 603,
+ 'downloader/response_bytes': 19946930,
+ 'downloader/response_count': 603,
+ 'downloader/response_status_count/200': 603,
+ 'dupefilter/filtered': 498561,
+ 'elapsed_time_seconds': 1089.523781,
+ 'finish_reason': 'closespider_pagecount',
+ 'finish_time': datetime.datetime(2026, 4, 16, 19, 45, 20, 282028, tzinfo=datetime.timezone.utc),
+ 'httpcache/firsthand': 596,
+ 'httpcache/hit': 7,
+ 'httpcache/miss': 596,
+ 'httpcache/store': 596,
+ 'httpcompression/response_bytes': 145435155,
+ 'httpcompression/response_count': 603,
+ 'item_scraped_count': 597,
+ 'items_per_minute': 32.892561983471076,
+ 'log_count/INFO': 21,
+ 'memusage/max': 115380224,
+ 'memusage/startup': 80224256,
+ 'request_depth_max': 2,
+ 'response_received_count': 603,
+ 'responses_per_minute': 33.223140495867774,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 602,
+ 'scheduler/dequeued/memory': 602,
+ 'scheduler/enqueued': 3050,
+ 'scheduler/enqueued/memory': 3050,
+ 'start_time': datetime.datetime(2026, 4, 16, 19, 27, 10, 758247, tzinfo=datetime.timezone.utc)}
+2026-04-16 21:45:20 [scrapy.core.engine] INFO: Spider closed (closespider_pagecount)

@@ -1,12 +1,5 @@
-# Scrapy cache
-.scrapy/
-
-# Output dataset (veliki fajlovi)
-output/*.jsonl
-output/*.log
-
-# Python
+.venv/
 __pycache__/
-*.pyc
-*.pyo
+.scrapy/
 .env
+*.pyc
